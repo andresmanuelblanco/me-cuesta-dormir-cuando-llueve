@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://cntyn35cxaayd"]
+
+[ext_resource type="Script" uid="uid://lhhocr2homdy" path="res://Puzzle Police/dialog_box.gd" id="1_hwgul"]
+
+[sub_resource type="Theme" id="Theme_kek77"]
+
+[node name="Dialog Box" type="CanvasLayer"]
+script = ExtResource("1_hwgul")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 498.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_kek77")
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+layout_mode = 2
+
+[node name="Text Label" type="Label" parent="PanelContainer/MarginContainer"]
+custom_minimum_size = Vector2(1, 1)
+layout_mode = 2
+autowrap_mode = 3

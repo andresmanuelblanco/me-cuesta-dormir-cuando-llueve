@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bk6b5wi0gnx65"
+path="res://.godot/imported/Ambiente basico.wav-6b1b7d18699d5e317d0acb719fdd7a52.sample"
+
+[deps]
+
+source_file="res://Room/Ambiente basico.wav"
+dest_files=["res://.godot/imported/Ambiente basico.wav-6b1b7d18699d5e317d0acb719fdd7a52.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

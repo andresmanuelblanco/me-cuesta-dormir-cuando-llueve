@@ -1,0 +1,182 @@
+[gd_scene load_steps=22 format=3 uid="uid://drnbxrnmstqyh"]
+
+[ext_resource type="Script" uid="uid://q2gocj30hpex" path="res://jugador.gd" id="1_yxy1u"]
+[ext_resource type="Script" uid="uid://b46ypqntv8c6a" path="res://interact_tunnel.gd" id="2_p7r33"]
+[ext_resource type="Script" uid="uid://1oosofaedm20" path="res://transition.gd" id="3_lh8b8"]
+[ext_resource type="Script" uid="uid://cmboe0ufp6nfd" path="res://interact_charcter.gd" id="4_1sgqo"]
+[ext_resource type="Texture2D" uid="uid://bp62lvcog6gfl" path="res://Puzzle Wet Dog/IMG_5328.PNG" id="4_p7r33"]
+[ext_resource type="Texture2D" uid="uid://cv0o8uahk1nbw" path="res://Puzzle Wet Dog/Perro_Rascando_1.PNG" id="6_yxy1u"]
+[ext_resource type="Texture2D" uid="uid://bqkcxk6lmh4om" path="res://Puzzle Wet Dog/Perro_Rascando_2.PNG" id="7_p7r33"]
+[ext_resource type="Texture2D" uid="uid://bmsb0md1xwq73" path="res://Puzzle Wet Dog/Perro_Sentado.PNG" id="7_w0btl"]
+[ext_resource type="Texture2D" uid="uid://dofhybxl7qmri" path="res://Puzzle Wet Dog/Perro_Rascando_3.PNG" id="8_lh8b8"]
+[ext_resource type="PackedScene" uid="uid://dk8xspe615u7" path="res://Interseccion.glb" id="9_yxy1u"]
+[ext_resource type="Script" uid="uid://cys23soogl1g7" path="res://Puzzle Wet Dog/puzzle_wet_dog.gd" id="10_5xodv"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_0xm2m"]
+sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+ground_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+
+[sub_resource type="Sky" id="Sky_7mycd"]
+sky_material = SubResource("ProceduralSkyMaterial_0xm2m")
+
+[sub_resource type="Environment" id="Environment_1bvp3"]
+background_mode = 2
+sky = SubResource("Sky_7mycd")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_lquwl"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_7mycd"]
+points = PackedVector3Array(-0.125207, -0.532801, -0.480507, 0.0227831, 0.47607, 0.498884, 0.169713, 0.559144, 0.464172, 0.231051, -0.803591, 0.320455, 0.40741, 0.651043, -0.243523, -0.482789, 0.594843, 0.0822132, -0.362868, -0.682312, 0.289697, 0.469044, -0.654529, -0.0662713, -0.127444, 0.842701, -0.338103, -0.393435, -0.683942, -0.244717, 0.438255, 0.623309, 0.200849, 0.0841477, 0.977454, 0.114795, -0.0682023, -0.976458, -0.12927, 0.20055, -0.563129, -0.451454, -0.185527, 0.595453, -0.453475, -0.273363, 0.592268, 0.407754, -0.00693649, -0.476823, 0.49966, 0.375821, -0.588614, 0.316955, 0.111579, 0.563059, -0.481177, -0.41725, 0.527866, -0.270497, -0.484546, -0.596972, -0.0665097, -0.279747, 0.908561, 0.0533361, -0.250197, -0.880712, 0.205319, 0.263647, -0.902771, -0.127394, 0.293368, 0.871526, -0.157196, 0.373412, -0.526319, -0.328246, 0.499663, 0.476641, -0.00688856, 0.0531056, 0.875001, 0.324703, -0.154543, -0.590854, 0.465879, -0.0972799, -0.782358, -0.398188, -0.387649, -0.498171, 0.31565, -0.30068, -0.587995, -0.388901)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0xm2m"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_lh8b8"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_5vw27"]
+radius = 0.98828125
+height = 2.569336
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1sgqo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_w0btl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_w0btl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_yxy1u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_yxy1u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_p7r33")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_p7r33")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_lh8b8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_lh8b8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_w0btl")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_w1onv"]
+size = Vector3(43.87451, 1, 70)
+
+[node name="puzzle_wet_dog" type="Node3D" groups=["Puzzle_Wet_Dog"]]
+
+[node name="Sun" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_1bvp3")
+
+[node name="Player" type="CharacterBody3D" parent="." groups=["Player", "Puzzle_Wet_Dog"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 1, 0)
+script = ExtResource("1_yxy1u")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("CapsuleMesh_lquwl")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("ConvexPolygonShape3D_7mycd")
+
+[node name="PlayerHead" type="Node3D" parent="Player"]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
+
+[node name="Camera3D" type="Camera3D" parent="Player/PlayerHead"]
+transform = Transform3D(1, 0, 0, 0, 0.997457, 0.0712712, 0, -0.0712712, 0.997457, 0, 1.736, 0)
+
+[node name="RayCast3D" type="RayCast3D" parent="Player/PlayerHead/Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0)
+target_position = Vector3(0, 0, -10)
+
+[node name="MouseCapture" type="Node" parent="."]
+
+[node name="Transicion" type="Area3D" parent="."]
+transform = Transform3D(3.555, 0, 0, 0, 3.555, 0, 0, 0, 3.555, -58.405785, 5.5440884, 0)
+script = ExtResource("2_p7r33")
+fade_layer_path = NodePath("../TransicionCanvas")
+room = "res://room.tscn"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Transicion"]
+transform = Transform3D(3.555, 0, 0, 0, 3.555, 0, 0, 0, 3.555, 0, 0, 0)
+shape = SubResource("BoxShape3D_0xm2m")
+
+[node name="TransicionCanvas" type="CanvasLayer" parent="."]
+script = ExtResource("3_lh8b8")
+
+[node name="ColorRect" type="ColorRect" parent="TransicionCanvas"]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Dog_Sign" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.238001, 0, 3.9615793)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Dog_Sign"]
+shape = SubResource("CapsuleShape3D_lh8b8")
+
+[node name="Sprite3D" type="Sprite3D" parent="Dog_Sign"]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 1.6647172, 0)
+billboard = 2
+texture = ExtResource("4_p7r33")
+
+[node name="Wet_Dog" type="StaticBody3D" parent="." groups=["Dog", "Interactable"]]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -15, -0.8, -12)
+script = ExtResource("4_1sgqo")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wet_Dog" groups=["Interactable"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.2384996, 0.19419861)
+shape = SubResource("CapsuleShape3D_5vw27")
+
+[node name="Sprite3D" type="AnimatedSprite3D" parent="Wet_Dog" groups=["Dog"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
+pixel_size = 0.005
+billboard = 2
+sprite_frames = SubResource("SpriteFrames_1sgqo")
+autoplay = "default"
+frame_progress = 0.41488093
+
+[node name="Label3D" type="Label3D" parent="Wet_Dog"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -0.35326767, 4.983049, 0.5696907)
+billboard = 1
+text = "E - Interactuar"
+font_size = 65
+uppercase = true
+
+[node name="Interseccion" parent="." instance=ExtResource("9_yxy1u")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 16.182, -2.191, 2.33)
+
+[node name="SpawnArea" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.871891, 0, -0.88293076)
+script = ExtResource("10_5xodv")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SpawnArea" groups=["Player"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.563255, 0.3, 0.617)
+shape = SubResource("BoxShape3D_w1onv")
+
+[connection signal="body_entered" from="Transicion" to="Transicion" method="_on_body_entered"]
+
+[editable path="Interseccion"]
