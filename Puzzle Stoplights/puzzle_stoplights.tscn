@@ -3,3 +3,9 @@
 [node name="PuzzleStoplights" type="Node3D"]
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.38102198, -0.924566, 0, 0.924566, 0.38102198, 0.060652733, 0, -0.96813965)
+size = Vector3(1, 1, 2.9362793)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, -0.6009085, 0.79931784, 0, -0.79931784, -0.6009085, 0, 4.9668293, -4.7813616)
+spot_range = 55.693104
