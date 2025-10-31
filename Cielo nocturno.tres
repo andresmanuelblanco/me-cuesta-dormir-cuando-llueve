@@ -1,0 +1,20 @@
+[gd_resource type="Environment" load_steps=3 format=3 uid="uid://dww4h8pwyxncl"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_8cv3p"]
+sky_top_color = Color(0.07313315, 0.18893299, 0.36862397, 1)
+sky_horizon_color = Color(0, 0, 0, 1)
+sky_cover_modulate = Color(0.15487596, 0.154876, 0.15487596, 1)
+ground_bottom_color = Color(0, 0, 0, 1)
+ground_horizon_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Sky" id="Sky_h2yge"]
+sky_material = SubResource("ProceduralSkyMaterial_8cv3p")
+
+[resource]
+background_mode = 2
+sky = SubResource("Sky_h2yge")
+ambient_light_source = 3
+ambient_light_color = Color(0, 0, 0.32156864, 1)
+ambient_light_sky_contribution = 0.72
+tonemap_mode = 2
+glow_enabled = true
