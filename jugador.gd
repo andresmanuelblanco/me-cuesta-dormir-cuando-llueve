@@ -11,11 +11,14 @@ const SENSITIVITY = 0.003
 @onready var prompt_ui = $CanvasLayer/InteractionPrompt
 @onready var dog = $"."
 
-var can_move : bool = true
+
+var can_move : bool = false
 var current_target : Node = null
 
 func _ready():
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	if (Global.game_started == true):
+		can_move = true
+		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	
 func _unhandled_input(event: InputEvent) -> void:
 	if not can_move:
@@ -79,6 +82,10 @@ func _check_for_interaction():
 		#Wet Dog
 		elif collider.is_in_group("Dog"):
 			collider.interact_dog()
+			
+		elif collider.is_in_group("Car"):
+			print("Collider auto")
+			collider.interact_car()
 
 func _update_interaction_prompt():
 	raycast.force_raycast_update()

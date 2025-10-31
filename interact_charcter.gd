@@ -12,6 +12,10 @@ extends StaticBody3D
 @onready var wet_dog_sprite: AnimatedSprite3D = $"../Wet_Dog/Sprite3D"
 @onready var wet_dog_label: Label3D = $"../Wet_Dog/Label3D"
 @onready var player = $"../Player"
+@onready var puzzle_car: Node3D = $"../../.."
+@onready var car: StaticBody3D = $"Car/Car Body/StaticBody3D"
+@onready var car_alarm_sound: AudioStreamPlayer3D = $"../Alarm"
+@onready var car_lock_sound: AudioStreamPlayer3D = $"../Lock"
 
 
 @onready var puzzle = $".."
@@ -77,3 +81,7 @@ func interact_dog():
 		wet_dog.position = new_position
 		wet_dog_sprite.visible = true
 		wet_dog_label.visible = true
+		
+func interact_car():
+	print("Interactuando")
+	puzzle_car.stop_alarm()

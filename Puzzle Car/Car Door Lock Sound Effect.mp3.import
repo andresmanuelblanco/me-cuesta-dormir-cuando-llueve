@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bld4jfemf8q30"
+path="res://.godot/imported/Car Door Lock Sound Effect.mp3-16eb3172004b3c37814f7ac4f9997754.mp3str"
+
+[deps]
+
+source_file="res://Puzzle Car/Car Door Lock Sound Effect.mp3"
+dest_files=["res://.godot/imported/Car Door Lock Sound Effect.mp3-16eb3172004b3c37814f7ac4f9997754.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
