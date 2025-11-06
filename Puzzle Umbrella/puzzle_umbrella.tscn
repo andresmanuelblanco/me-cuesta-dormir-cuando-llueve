@@ -1,0 +1,456 @@
+[gd_scene load_steps=18 format=3 uid="uid://e8vu43enk4e"]
+
+[ext_resource type="Script" uid="uid://qkmtp0xt1f4h" path="res://Puzzle Umbrella/puzzle_umbrella.gd" id="1_84gvu"]
+[ext_resource type="Environment" uid="uid://dww4h8pwyxncl" path="res://Cielo nocturno.tres" id="2_0fyqe"]
+[ext_resource type="PackedScene" uid="uid://irvhvyhveinc" path="res://CUADRASV3.blend" id="4_0fyqe"]
+[ext_resource type="Script" uid="uid://cmboe0ufp6nfd" path="res://interact_charcter.gd" id="4_1goci"]
+[ext_resource type="Texture2D" uid="uid://824ctwanp2gd" path="res://Puzzle Trafficlights/ARTE 2D/Hombre_Farol_Prendido.PNG" id="6_wimvx"]
+[ext_resource type="Texture2D" uid="uid://drwoex1wf1jwt" path="res://Puzzle Trafficlights/ARTE 2D/IMG_5296.PNG" id="7_jwp4y"]
+[ext_resource type="Script" uid="uid://q2gocj30hpex" path="res://jugador.gd" id="8_vaj5x"]
+[ext_resource type="Script" uid="uid://b46ypqntv8c6a" path="res://interact_tunnel.gd" id="9_cmxlv"]
+[ext_resource type="Texture2D" uid="uid://di48825u80lji" path="res://Puzzle Umbrella/Paraguas_Azul.PNG" id="10_4jvlf"]
+[ext_resource type="Script" uid="uid://1oosofaedm20" path="res://transition.gd" id="10_h2tm5"]
+[ext_resource type="Texture2D" uid="uid://bx7uwarln6vag" path="res://Puzzle Trafficlights/ARTE 2D/Siniestro_1.PNG" id="11_dcmk2"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_k47gq"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0fyqe"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_lvre5"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_1kmar"]
+points = PackedVector3Array(-0.125207, -0.532801, -0.480507, 0.0227831, 0.47607, 0.498884, 0.169713, 0.559144, 0.464172, 0.231051, -0.803591, 0.320455, 0.40741, 0.651043, -0.243523, -0.482789, 0.594843, 0.0822132, -0.362868, -0.682312, 0.289697, 0.469044, -0.654529, -0.0662713, -0.127444, 0.842701, -0.338103, -0.393435, -0.683942, -0.244717, 0.438255, 0.623309, 0.200849, 0.0841477, 0.977454, 0.114795, -0.0682023, -0.976458, -0.12927, 0.20055, -0.563129, -0.451454, -0.185527, 0.595453, -0.453475, -0.273363, 0.592268, 0.407754, -0.00693649, -0.476823, 0.49966, 0.375821, -0.588614, 0.316955, 0.111579, 0.563059, -0.481177, -0.41725, 0.527866, -0.270497, -0.484546, -0.596972, -0.0665097, -0.279747, 0.908561, 0.0533361, -0.250197, -0.880712, 0.205319, 0.263647, -0.902771, -0.127394, 0.293368, 0.871526, -0.157196, 0.373412, -0.526319, -0.328246, 0.499663, 0.476641, -0.00688856, 0.0531056, 0.875001, 0.324703, -0.154543, -0.590854, 0.465879, -0.0972799, -0.782358, -0.398188, -0.387649, -0.498171, 0.31565, -0.30068, -0.587995, -0.388901)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1t747"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_84gvu"]
+
+[node name="PuzzleUmbrella" type="Node3D"]
+script = ExtResource("1_84gvu")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource("2_0fyqe")
+
+[node name="Sun" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.4931813, 0.14700459, 0.8574158, 0.6966486, -0.52356124, 0.49047378, 0.5210116, 0.8392099, 0.15580006, 78.90661, 40.536457, -5.7521152)
+light_color = Color(3.657937e-06, 0.30736953, 0.6440998, 1)
+light_energy = 1.1
+shadow_enabled = true
+sky_mode = 1
+
+[node name="CUADRASV3" parent="." instance=ExtResource("4_0fyqe")]
+
+[node name="Tunnel Light Group" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 1.0000001, 72.94335, 3.6258173, -4.5709476)
+
+[node name="LuzTunel1" type="SpotLight3D" parent="Tunnel Light Group"]
+transform = Transform3D(1, 0, 0, 0, 0.004572788, 0.9999897, 0, -0.9999895, 0.004572787, -37.655468, 2.828566, 0.2769394)
+light_color = Color(0.92319024, 0.7474034, 0.4015782, 1)
+light_energy = 2.83
+spot_range = 6.093
+spot_attenuation = 1.15
+spot_angle = 80.0
+spot_angle_attenuation = 0.84
+
+[node name="LuzTunel2" type="SpotLight3D" parent="Tunnel Light Group"]
+transform = Transform3D(1, 0, 0, 0, -0.02579306, 0.99966747, 0, -0.9996673, -0.025793055, -5.426529, 2.8582244, 0.24769735)
+light_color = Color(0.92319024, 0.7474034, 0.4015782, 1)
+light_energy = 2.83
+shadow_enabled = true
+spot_range = 6.093
+spot_attenuation = 1.15
+spot_angle = 80.0
+spot_angle_attenuation = 0.840897
+
+[node name="LuzTunel3" type="SpotLight3D" parent="Tunnel Light Group"]
+transform = Transform3D(1, 0, 0, 0, -0.022460446, 0.9997479, 0, -0.9997477, -0.022460444, -12.580151, 2.844162, 0.26216173)
+light_color = Color(0.92319024, 0.7474034, 0.4015782, 1)
+light_energy = 2.83
+shadow_enabled = true
+spot_range = 6.093
+spot_attenuation = 1.34
+spot_angle = 80.0
+
+[node name="LuzTunel4" type="SpotLight3D" parent="Tunnel Light Group"]
+transform = Transform3D(1, 0, 0, 0, 0.050593, 0.99871945, 0, -0.9987193, 0.05059299, -9.111023, 2.8369813, 0.2687688)
+light_color = Color(0.92319024, 0.7474034, 0.4015782, 1)
+light_energy = 2.83
+shadow_enabled = true
+spot_range = 6.093
+spot_attenuation = 1.9
+spot_angle = 80.0
+
+[node name="LuzTunel5" type="SpotLight3D" parent="Tunnel Light Group"]
+transform = Transform3D(1, 0, 0, 0, 0.022844424, 0.9997392, 0, -0.99973905, 0.02284442, -19.676556, 2.8633523, 0.24564648)
+light_color = Color(0.92319024, 0.7474034, 0.4015782, 1)
+light_energy = 2.83
+shadow_enabled = true
+spot_range = 6.093
+spot_attenuation = 1.9
+spot_angle = 80.0
+
+[node name="LuzTunel6" type="SpotLight3D" parent="Tunnel Light Group"]
+transform = Transform3D(1, 0, 0, 0, -0.0038047517, 0.99999297, 0, -0.9999928, -0.003804751, -16.125092, 2.8580256, 0.26611567)
+light_color = Color(0.92319024, 0.7474034, 0.4015782, 1)
+light_energy = 2.83
+shadow_enabled = true
+spot_range = 6.093
+spot_attenuation = 0.85
+spot_angle = 80.0
+
+[node name="LuzTunel7" type="SpotLight3D" parent="Tunnel Light Group"]
+transform = Transform3D(1, 0, 0, 0, -0.065089576, 0.99787956, 0, -0.9978794, -0.06508957, -23.47089, 2.8126283, 0.27153587)
+light_color = Color(0.92319024, 0.7474034, 0.4015782, 1)
+light_energy = 2.83
+shadow_enabled = true
+spot_range = 6.093
+spot_attenuation = 0.99
+spot_angle = 80.0
+
+[node name="LuzTunel8" type="SpotLight3D" parent="Tunnel Light Group"]
+transform = Transform3D(1, 0, 0, 0, -0.028200729, 0.99960244, 0, -0.99960226, -0.028200723, -34.056, 2.8050904, 0.24914646)
+light_color = Color(0.92319024, 0.7474034, 0.4015782, 1)
+light_energy = 2.83
+shadow_enabled = true
+spot_range = 6.093
+spot_attenuation = 1.9
+spot_angle = 80.0
+
+[node name="LuzTunel9" type="SpotLight3D" parent="Tunnel Light Group"]
+transform = Transform3D(1, 0, 0, 0, 0.0026005951, 0.9999967, 0, -0.99999654, 0.0026005947, -26.855747, 2.8421745, 0.24876976)
+light_color = Color(0.92319024, 0.7474034, 0.4015782, 1)
+light_energy = 2.83
+shadow_enabled = true
+spot_range = 6.093
+spot_attenuation = 1.9
+spot_angle = 80.0
+
+[node name="LuzTunel10" type="SpotLight3D" parent="Tunnel Light Group"]
+transform = Transform3D(1, 0, 0, 0, -0.0048868502, 0.9999882, 0, -0.999988, -0.0048868493, -30.548672, 2.842915, 0.2317853)
+light_color = Color(0.92319024, 0.7474034, 0.4015782, 1)
+light_energy = 2.83
+shadow_enabled = true
+spot_range = 6.093
+spot_attenuation = 1.9
+spot_angle = 80.0
+
+[node name="LampPost Group" type="Node3D" parent="."]
+transform = Transform3D(0.98923665, 0, 0.14632475, 0, 1, 0, -0.14632475, 0, 0.98923665, 83.79243, 3.1834593, -23.327202)
+
+[node name="LampPost 1" type="StaticBody3D" parent="LampPost Group"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5425873, 0, 24.427532)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LampPost Group/LampPost 1"]
+shape = SubResource("BoxShape3D_k47gq")
+
+[node name="Sprite3D" type="Sprite3D" parent="LampPost Group/LampPost 1"]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -0.007156372, 0.0070135593, -0.011713982)
+billboard = 2
+texture = ExtResource("6_wimvx")
+
+[node name="LuzFarol1" type="SpotLight3D" parent="LampPost Group/LampPost 1"]
+transform = Transform3D(0.98923653, 0.14632322, -0.00066911295, 0, 0.0045727943, 0.99998957, 0.14632474, -0.9892262, 0.0045235753, 0.12892914, 1.096127, -0.031002998)
+light_color = Color(0.92319024, 0.7474034, 0.4015782, 1)
+light_energy = 2.83
+spot_range = 4.7
+spot_attenuation = 1.25
+spot_angle = 87.75
+
+[node name="LampPost 2" type="StaticBody3D" parent="LampPost Group"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.3764496, 0, 36.825565)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LampPost Group/LampPost 2"]
+shape = SubResource("BoxShape3D_k47gq")
+
+[node name="Sprite3D" type="Sprite3D" parent="LampPost Group/LampPost 2"]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -0.007156372, 0.0070135593, -0.011713982)
+billboard = 2
+texture = ExtResource("6_wimvx")
+metadata/_edit_lock_ = true
+
+[node name="LuzFarol1" type="SpotLight3D" parent="LampPost Group/LampPost 2"]
+transform = Transform3D(0.98923653, 0.14632322, -0.00066911295, 0, 0.0045727943, 0.99998957, 0.14632474, -0.9892262, 0.0045235753, 0.12892914, 1.096127, -0.031002998)
+light_color = Color(0.92319024, 0.7474034, 0.4015782, 1)
+light_energy = 2.83
+spot_range = 4.7
+spot_attenuation = 1.25
+spot_angle = 87.75
+
+[node name="LampPost 3" type="StaticBody3D" parent="LampPost Group"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9225235, 0, 13.074268)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LampPost Group/LampPost 3"]
+shape = SubResource("BoxShape3D_k47gq")
+
+[node name="Sprite3D" type="Sprite3D" parent="LampPost Group/LampPost 3"]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -0.007156372, 0.0070135593, -0.011713982)
+billboard = 2
+texture = ExtResource("6_wimvx")
+metadata/_edit_lock_ = true
+
+[node name="LuzFarol1" type="SpotLight3D" parent="LampPost Group/LampPost 3"]
+transform = Transform3D(0.98923653, 0.14632322, -0.00066911295, 0, 0.0045727943, 0.99998957, 0.14632474, -0.9892262, 0.0045235753, 0.12892914, 1.096127, -0.031002998)
+light_color = Color(0.92319024, 0.7474034, 0.4015782, 1)
+light_energy = 2.83
+spot_range = 4.7
+spot_attenuation = 1.25
+spot_angle = 87.75
+
+[node name="LampPost 4" type="StaticBody3D" parent="LampPost Group"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.437675, 0, 15.050467)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LampPost Group/LampPost 4"]
+shape = SubResource("BoxShape3D_k47gq")
+
+[node name="Sprite3D" type="Sprite3D" parent="LampPost Group/LampPost 4"]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -0.007156372, 0.0070135593, -0.011713982)
+billboard = 2
+texture = ExtResource("6_wimvx")
+metadata/_edit_lock_ = true
+
+[node name="LuzFarol1" type="SpotLight3D" parent="LampPost Group/LampPost 4"]
+transform = Transform3D(0.98923653, 0.14632322, -0.00066911295, 0, 0.0045727943, 0.99998957, 0.14632474, -0.9892262, 0.0045235753, 0.12892914, 1.096127, -0.031002998)
+light_color = Color(0.92319024, 0.7474034, 0.4015782, 1)
+light_energy = 2.83
+spot_range = 4.7
+spot_attenuation = 1.25
+spot_angle = 87.75
+
+[node name="LampPost 5" type="StaticBody3D" parent="LampPost Group"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.8042755, 0, 26.093203)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LampPost Group/LampPost 5"]
+shape = SubResource("BoxShape3D_k47gq")
+
+[node name="Sprite3D" type="Sprite3D" parent="LampPost Group/LampPost 5"]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -0.007156372, 0.0070135593, -0.011713982)
+billboard = 2
+texture = ExtResource("6_wimvx")
+metadata/_edit_lock_ = true
+
+[node name="LuzFarol1" type="SpotLight3D" parent="LampPost Group/LampPost 5"]
+transform = Transform3D(0.98923653, 0.14632322, -0.00066911295, 0, 0.0045727943, 0.99998957, 0.14632474, -0.9892262, 0.0045235753, 0.12892914, 1.096127, -0.031002998)
+light_color = Color(0.92319024, 0.7474034, 0.4015782, 1)
+light_energy = 2.83
+spot_range = 4.7
+spot_attenuation = 1.25
+spot_angle = 87.75
+
+[node name="LampPost 6" type="StaticBody3D" parent="LampPost Group"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.616058, 0, 27.988281)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LampPost Group/LampPost 6"]
+shape = SubResource("BoxShape3D_k47gq")
+
+[node name="Sprite3D" type="Sprite3D" parent="LampPost Group/LampPost 6"]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -0.007156372, 0.0070135593, -0.011713982)
+billboard = 2
+texture = ExtResource("6_wimvx")
+metadata/_edit_lock_ = true
+
+[node name="LuzFarol1" type="SpotLight3D" parent="LampPost Group/LampPost 6"]
+transform = Transform3D(0.98923653, 0.14632322, -0.00066911295, 0, 0.0045727943, 0.99998957, 0.14632474, -0.9892262, 0.0045235753, 0.12892914, 1.096127, -0.031002998)
+light_color = Color(0.92319024, 0.7474034, 0.4015782, 1)
+light_energy = 2.83
+spot_range = 4.7
+spot_attenuation = 1.25
+spot_angle = 87.75
+
+[node name="LampPost 7" type="StaticBody3D" parent="LampPost Group"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.255394, 0, 16.905418)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LampPost Group/LampPost 7"]
+shape = SubResource("BoxShape3D_k47gq")
+
+[node name="Sprite3D" type="Sprite3D" parent="LampPost Group/LampPost 7"]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -0.007156372, 0.0070135593, -0.011713982)
+billboard = 2
+texture = ExtResource("6_wimvx")
+metadata/_edit_lock_ = true
+
+[node name="LuzFarol1" type="SpotLight3D" parent="LampPost Group/LampPost 7"]
+transform = Transform3D(0.98923653, 0.14632322, -0.00066911295, 0, 0.0045727943, 0.99998957, 0.14632474, -0.9892262, 0.0045235753, 0.12892914, 1.096127, -0.031002998)
+light_color = Color(0.92319024, 0.7474034, 0.4015782, 1)
+light_energy = 2.83
+spot_range = 4.506
+spot_attenuation = 1.25
+spot_angle = 87.75
+
+[node name="LampPost 8" type="StaticBody3D" parent="LampPost Group"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.089172, 0, 19.40827)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LampPost Group/LampPost 8"]
+shape = SubResource("BoxShape3D_k47gq")
+
+[node name="Sprite3D" type="Sprite3D" parent="LampPost Group/LampPost 8"]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -0.007156372, 0.0070135593, -0.011713982)
+billboard = 2
+texture = ExtResource("6_wimvx")
+metadata/_edit_lock_ = true
+
+[node name="LuzFarol1" type="SpotLight3D" parent="LampPost Group/LampPost 8"]
+transform = Transform3D(0.98923653, 0.14632322, -0.00066911295, 0, 0.0045727943, 0.99998957, 0.14632474, -0.9892262, 0.0045235753, 0.12892914, 1.096127, -0.031002998)
+light_color = Color(0.92319024, 0.7474034, 0.4015782, 1)
+light_energy = 2.83
+spot_range = 4.506
+spot_attenuation = 1.25
+spot_angle = 87.75
+
+[node name="LampPost 9" type="StaticBody3D" parent="LampPost Group"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.89318, 0, 27.493862)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LampPost Group/LampPost 9"]
+shape = SubResource("BoxShape3D_k47gq")
+
+[node name="Sprite3D" type="Sprite3D" parent="LampPost Group/LampPost 9"]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -0.007156372, 0.0070135593, -0.011713982)
+billboard = 2
+texture = ExtResource("6_wimvx")
+metadata/_edit_lock_ = true
+
+[node name="LuzFarol1" type="SpotLight3D" parent="LampPost Group/LampPost 9"]
+transform = Transform3D(0.98923653, 0.14632322, -0.00066911295, 0, 0.0045727943, 0.99998957, 0.14632474, -0.9892262, 0.0045235753, 0.12892914, 1.096127, -0.031002998)
+light_color = Color(0.92319024, 0.7474034, 0.4015782, 1)
+light_energy = 2.83
+spot_range = 4.506
+spot_attenuation = 1.25
+spot_angle = 87.75
+
+[node name="LampPost 10" type="StaticBody3D" parent="LampPost Group"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LampPost Group/LampPost 10"]
+shape = SubResource("BoxShape3D_k47gq")
+
+[node name="Sprite3D" type="Sprite3D" parent="LampPost Group/LampPost 10"]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -0.007156372, 0.0070135593, -0.011713982)
+billboard = 2
+texture = ExtResource("6_wimvx")
+metadata/_edit_lock_ = true
+
+[node name="LuzFarol1" type="SpotLight3D" parent="LampPost Group/LampPost 10"]
+transform = Transform3D(0.98923653, 0.14632322, -0.00066911295, 0, 0.0045727943, 0.99998957, 0.14632474, -0.9892262, 0.0045235753, 0.12892914, 1.096127, -0.031002998)
+light_color = Color(0.92319024, 0.7474034, 0.4015782, 1)
+light_energy = 2.83
+spot_range = 4.506
+spot_attenuation = 1.25
+spot_angle = 87.75
+
+[node name="TrafficLight 1" type="StaticBody3D" parent="."]
+transform = Transform3D(0.98923665, 0, 0.14632475, 0, 1, 0, -0.14632475, 0, 0.98923665, 75.40614, 3.1348987, -0.5373945)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TrafficLight 1"]
+shape = SubResource("BoxShape3D_0fyqe")
+
+[node name="Sprite3D" type="Sprite3D" parent="TrafficLight 1"]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -0.007156372, 0.0070135593, -0.011713982)
+billboard = 2
+texture = ExtResource("7_jwp4y")
+
+[node name="LuzFarol1" type="SpotLight3D" parent="TrafficLight 1"]
+transform = Transform3D(0.10199528, 0.14182374, -0.98462325, 0.99467045, 0.00047146314, 0.10310398, 0.0150868045, -0.98989177, -0.1410198, 0.12892914, 1.2836118, -0.031004906)
+light_color = Color(0.10980392, 0.7490196, 0.4, 1)
+light_energy = 13.713
+spot_range = 4.506
+spot_attenuation = 1.25
+spot_angle = 87.75
+
+[node name="TrafficLight 2" type="StaticBody3D" parent="."]
+transform = Transform3D(-0.12018883, 0, 0.99275106, 0, 1, 0, -0.99275106, 0, -0.12018883, 99.940414, 2.7867055, 2.7702181)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TrafficLight 2"]
+shape = SubResource("BoxShape3D_k47gq")
+
+[node name="Sprite3D" type="Sprite3D" parent="TrafficLight 2"]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -0.007156372, 0.0070135593, -0.011713982)
+billboard = 2
+texture = ExtResource("7_jwp4y")
+
+[node name="LuzFarol1" type="SpotLight3D" parent="TrafficLight 2"]
+transform = Transform3D(0.10199528, 0.14182374, -0.98462325, 0.99467045, 0.0004714662, 0.10310396, 0.015086806, -0.9898918, -0.14101979, 0.12892818, 1.2836118, -0.031013489)
+light_color = Color(0.10980392, 0.7490196, 0.4, 1)
+light_energy = 13.713
+spot_range = 4.506
+spot_attenuation = 1.25
+spot_angle = 87.75
+
+[node name="Player" type="CharacterBody3D" parent="." groups=["Player", "Puzzle_Umbrella"]]
+transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 1.0000001, 99.35839, 1.0000002, 1.7854819)
+script = ExtResource("8_vaj5x")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("CapsuleMesh_lvre5")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("ConvexPolygonShape3D_1kmar")
+
+[node name="PlayerHead" type="Node3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1.0000001, 0, 0, 0, 0.9999999, 0, 0, 0)
+
+[node name="Camera3D" type="Camera3D" parent="Player/PlayerHead"]
+transform = Transform3D(1, 0, 0, 0, 0.997457, 0.0712712, 0, -0.0712712, 0.997457, 0, 1.736, 0)
+
+[node name="RayCast3D" type="RayCast3D" parent="Player/PlayerHead/Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0)
+target_position = Vector3(0, 0, -10)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Player"]
+
+[node name="InteractionPrompt" type="Control" parent="Player/CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextureRect" type="TextureRect" parent="Player/CanvasLayer/InteractionPrompt"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="Player/CanvasLayer/InteractionPrompt"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="Transicion" type="Area3D" parent="."]
+transform = Transform3D(3.555, 0, 0, 0, 3.555, 0, 0, 0, 3.555, 63.764786, 5.5440884, -5.2457676)
+script = ExtResource("9_cmxlv")
+fade_layer_path = NodePath("../TransicionCanvas")
+room = "res://room.tscn"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Transicion"]
+transform = Transform3D(3.555, 0, 0, 0, 3.555, 0, 0, 0, 3.555, 0, 0, 0)
+shape = SubResource("BoxShape3D_1t747")
+
+[node name="TransicionCanvas" type="CanvasLayer" parent="."]
+script = ExtResource("10_h2tm5")
+
+[node name="ColorRect" type="ColorRect" parent="TransicionCanvas"]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Siniestro" type="Sprite3D" parent="."]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 47, 2.649, -4.315)
+billboard = 2
+texture = ExtResource("11_dcmk2")
+
+[node name="BlueUmbrella" type="StaticBody3D" parent="." groups=["Blue Umbrella"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 83.80011, 2.8735778, -21.527815)
+script = ExtResource("4_1goci")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BlueUmbrella"]
+shape = SubResource("BoxShape3D_84gvu")
+
+[node name="Sprite3D" type="Sprite3D" parent="BlueUmbrella"]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
+billboard = 2
+texture = ExtResource("10_4jvlf")
+
+[connection signal="body_entered" from="Transicion" to="Transicion" method="_on_body_entered"]

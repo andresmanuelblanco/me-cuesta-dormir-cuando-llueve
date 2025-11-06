@@ -3,7 +3,7 @@ extends Node
 var puzzle_list = ["res://Puzzle Police/puzzle_police.tscn", "res://Puzzle Wet Dog/puzzle_wet_dog.tscn"]
 
 var game_finished: bool = false
-var game_started: bool = false
+var game_started: bool = true
 
 func game_start():
 	game_started = true

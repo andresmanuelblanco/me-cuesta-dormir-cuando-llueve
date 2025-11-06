@@ -7,6 +7,7 @@ extends Node3D
 
 func _ready():
 	if (Global.get_game_finished()):
+		print("Game finished")
 		end_game()
 
 func end_game():

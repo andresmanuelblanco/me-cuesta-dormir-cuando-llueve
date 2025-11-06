@@ -12,11 +12,17 @@ extends StaticBody3D
 @onready var wet_dog_sprite: AnimatedSprite3D = $"../Wet_Dog/Sprite3D"
 @onready var wet_dog_label: Label3D = $"../Wet_Dog/Label3D"
 @onready var player = $"../Player"
-@onready var puzzle_car: Node3D = $"../../.."
+@onready var puzzle_car: Node3D = get_node(".")
 @onready var car: StaticBody3D = $"Car/Car Body/StaticBody3D"
 @onready var car_alarm_sound: AudioStreamPlayer3D = $"../Alarm"
 @onready var car_lock_sound: AudioStreamPlayer3D = $"../Lock"
-
+@onready var puzzle_trafficlights: Node3D = $".."
+@onready var trafficlight: StaticBody3D = $"."
+@onready var puzzle_lampposts: Node3D = $".."
+@onready var lamppost: StaticBody3D = $"."
+@onready var puzzle_umbrella: Node3D = $".."
+@onready var blue_umbrella: StaticBody3D = $BlueUmbrella
+@onready var puzzle_chalk: Node3D = $".."
 
 @onready var puzzle = $".."
 
@@ -83,5 +89,25 @@ func interact_dog():
 		wet_dog_label.visible = true
 		
 func interact_car():
-	print("Interactuando")
+	print("Interactuando con auto")
 	puzzle_car.stop_alarm()
+	
+func interact_trafficlight_one():
+	print("Interactuando con semaforo 1")
+	puzzle_trafficlights.switch_color_one()
+	
+func interact_trafficlight_two():
+	print("Interactuando con semaforo 2")
+	puzzle_trafficlights.switch_color_two()
+	
+func interact_lamppost_one():
+	print("Interactuando con farol 1")
+	puzzle_lampposts.switch_on_one()
+	
+func interact_blue_umbrella():
+	print("Interactuando con el paraguas azul")
+	puzzle_umbrella.solve()
+
+func interact_chalk():
+	print("Interactuando con la tiza")
+	puzzle_chalk.inspect()

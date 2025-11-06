@@ -12,7 +12,7 @@ const SENSITIVITY = 0.003
 @onready var dog = $"."
 
 
-var can_move : bool = false
+var can_move : bool = true
 var current_target : Node = null
 
 func _ready():
@@ -64,6 +64,7 @@ func _check_for_interaction():
 		return
 
 	var collider = raycast.get_collider()
+	print("Raycast hit:", collider.name)
 	if collider:
 		# Orange cube
 		if collider.is_in_group("Caja Naranja"):
@@ -84,8 +85,26 @@ func _check_for_interaction():
 			collider.interact_dog()
 			
 		elif collider.is_in_group("Car"):
-			print("Collider auto")
 			collider.interact_car()
+			
+		elif collider.is_in_group("Trafficlight"):
+			if (collider.name == "TrafficLight 1 Red"):
+				collider.interact_trafficlight_one()
+			elif (collider.name == "TrafficLight 2 Red"):
+				collider.interact_trafficlight_two()
+				
+		elif collider.is_in_group("Lamppost"):
+			print ("Collider farol")
+			if (collider.name == "LampPost 1"):
+				collider.interact_lamppost_one()
+				
+		elif collider.is_in_group("Blue Umbrella"):
+			print("Collider paraguas azul")
+			collider.interact_blue_umbrella()
+		
+		elif collider.is_in_group("Chalk Shape"):
+			print("Collider tiza")
+			collider.interact_chalk()
 
 func _update_interaction_prompt():
 	raycast.force_raycast_update()
